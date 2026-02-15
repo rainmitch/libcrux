@@ -19,6 +19,12 @@ mod sample;
 mod samplex4;
 mod simd;
 
+
+#[cfg(all(feature = "zeroize", not(hax)))]
+#[cfg_attr(docsrs, doc(cfg(feature = "zeroize")))]
+pub mod zeroize;
+
+
 #[cfg(hax)]
 mod specs;
 

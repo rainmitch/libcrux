@@ -26,6 +26,7 @@ hax-lib.workspace = true
 tls_codec = { version = "0.4.2", features = [
     "derive",
 ], default-features = false, optional = true }
+zeroize = { version = "1.8", optional = true, default-features = false}
 
 [dev-dependencies]
 rand = { version = "0.9" }
@@ -46,7 +47,7 @@ pqcrypto-mldsa = { version = "0.1.0" } #, default-features = false
 core-models = { path = "../crates/utils/core-models", version = "0.0.5" }
 
 [features]
-default = ["std", "mldsa44", "mldsa65", "mldsa87"]
+default = ["std", "mldsa44", "mldsa65", "mldsa87", "zeroize"]
 simd128 = ["libcrux-sha3/simd128", "libcrux-intrinsics/simd128"]
 simd256 = ["libcrux-sha3/simd256", "libcrux-intrinsics/simd256"]
 acvp = []                                                        # expose internal API for ACVP testing
@@ -59,6 +60,9 @@ mldsa87 = []
 
 # std support
 std = []
+
+# Feature for zeroize
+zeroize = ["dep:zeroize"]
 
 # Serialization & Deserialization using tls_codec
 codec = ["dep:tls_codec"]

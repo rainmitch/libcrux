@@ -3,7 +3,7 @@
 #[derive(Clone, Copy)]
 #[repr(transparent)]
 pub(crate) struct Vec256 {
-    pub(super) value: libcrux_intrinsics::avx2::Vec256,
+    pub(crate) value: libcrux_intrinsics::avx2::Vec256,
 }
 
 /// An avx2 encoded ring element
